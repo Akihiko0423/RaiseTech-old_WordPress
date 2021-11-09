@@ -1,0 +1,204 @@
+//tabret version
+@media (max-width:1300px){
+  header{
+    .header-left{
+      p{
+        display:none;
+      }
+    }
+  }
+}
+
+//btn version
+@media (max-width:1100px){
+  header{
+    .header-right{
+      .header-link{
+        display:none;
+        nav{
+          ul{
+            display:block;
+            position:absolute;
+            padding:0;
+            width:100%;
+            left:0px;
+            top:70px;
+            z-index:100;
+            background-color: white;
+            li{
+              padding:0;
+              line-height: 40px;
+              //＋ボタンを－ボタンに
+              &:hover{
+                .sub-link::after{
+                  display:none;
+                }
+              }
+              //講師案内には＋ボタンいらない
+              .sub-link{
+                display:flex;
+                align-items: center;
+                padding-left:20px;
+                position:relative;
+                //講師案内には＋を付けないので別で記述
+                &-lecturer{
+                  padding-left:20px;
+                }
+                //＋ボタン
+                &::before{
+                  display: block;
+                  content: "";
+                  position: absolute;
+                  top: 50%;
+                  right: 23px;
+                  width: 24px;
+                  height: 2px;
+                  margin-top: -1px;
+                  background-color: #121212;
+                  z-index: 9;
+                }
+                &::after{
+                  display: block;
+                  content: "";
+                  position: absolute;
+                  top: 50%;
+                  right: 34px;
+                  width: 2px;
+                  height: 24px;
+                  margin-top: -12px;
+                  background-color: #121212;
+                }
+              }
+              //アコーディオン部分
+              .acodion{
+                width:100%;
+              }
+              .sub-menu{
+                position:static;
+                width:100%;
+                margin:0;
+                &-min{
+                  @extend .sub-menu;
+                }
+                li{
+                  padding-left:40px;
+                }
+              }              
+            }
+            .form{
+              display:none;
+            }
+          }
+        }
+      }
+      //ハンバーガーボタン
+      .menu-btn {
+        position: fixed;
+        top: 0px;
+        right:0px;
+        display: flex;
+        height: 70px;
+        width: 70px;
+        justify-content: center;
+        align-items: center;
+        z-index: 90;
+      }
+      .menu-btn span,
+      .menu-btn span:before,
+      .menu-btn span:after {
+        content: '';
+        display: block;
+        height: 3px;
+        width: 30px;
+        border-radius: 3px;
+        background-color: #3584bb;
+        position: absolute;
+      }
+      .menu-btn span:before {
+        bottom: 10px;
+      }
+      .menu-btn span:after {
+        top: 10px;
+      }
+    
+      #menu-btn-check:checked ~ .menu-btn span {
+        background-color: rgba(255, 255, 255, 0);/*メニューオープン時は真ん中の線を透明にする*/
+      }
+      #menu-btn-check:checked ~ .menu-btn span::before {
+        bottom: 0;
+        transform: rotate(45deg);
+        background-color:white;
+      }
+      #menu-btn-check:checked ~ .menu-btn span::after {
+        top: 0;
+        transform: rotate(-45deg);
+        background-color:white;
+      }
+
+      #menu-btn-check:checked ~ .menu-btn {
+        background-color: #3584bb;
+      }
+      //ハンバーガーボタンをクリックしたらheadr-link表示
+      #menu-btn-check:checked ~ .header-link {
+        display:block;
+      }
+    }
+  }
+}
+
+//smartphone version
+@media(max-width:750px){
+  main{
+    .main-top{
+      height: 300px;
+      .layer1{
+        background-size:cover;
+        background-position: center 10px;
+        .main-title{
+          margin-top:200px;
+          border-radius: 0px;
+          width:100%;
+          .main-title-wrapper{
+            h2{
+              display:none;
+            }
+            .main-text{
+              font-size:12px;
+              margin:15px 0 10px;
+            }
+            .btn{
+              width:220px;
+              padding:10px 0 10px;
+              a{
+                font-size:14px;
+              }
+            }
+          }          
+        }
+        .layer2{
+          width:100%;
+          background-size:cover;
+        }
+      }
+    }
+    .black-bg{
+      margin:280px auto 0;
+      width:100%;
+      .main-detail{
+        flex-direction: column;
+        justify-content: center;
+        width:100%;
+        .detail{
+          width:100%;
+          padding-top:60px;
+          .detail-text{
+            width:90%;
+            p{
+              font-size:17px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
